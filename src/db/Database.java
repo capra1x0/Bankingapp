@@ -48,25 +48,6 @@ public class Database {
 	String user = "root";
     String pass = "";
 	
-//	public static void main(String[] args) {
-//		
-//	    
-//	    try {
-//	    	Connection con = DriverManager.getConnection(url, user, pass);
-//	    	System.out.println("Verbindung erfolgreich hergestellt");
-//	    	//Statement stm = con.createStatement();
-//	    	
-//	    	
-//	    } catch(SQLException e) {
-//	    	System.out.println(e);
-//	    }
-//	    
-//	    
-//	}
-	
-  //  String query="INSERT INTO account values('\" + firstName + \"','\" + lastName + \"','\" + userName + \"','\" +\n"+  password + "','\" + emailId + \"','\" + mobileNumber + \"')\";";
-
-    
     public void insertAccount(String nachname, String name, String passwd, String email) {
     	int kontostand = 1000;
     	try {
@@ -100,7 +81,6 @@ public class Database {
 				list.add(res.getString(5));
 				
 				if (list.contains(email) && list.contains(passwd)) {
-					//JOptionPane.showMessageDialog(frame, "du bist eingeloggt", "Error", JOptionPane.ERROR_MESSAGE);
 					logged = true;
 					return true;
 				}
@@ -144,16 +124,7 @@ public class Database {
 			String get = "SELECT * FROM accounts WHERE email = ?";
 			PreparedStatement stm = con.prepareStatement(get);
 			stm.setString(1, email);
-			//Statement stm = con.createStatement();
 			res = stm.executeQuery();
-			
-			//account.add(res.getString(1));
-			//account.add(res.getString(2));
-			//account.add(res.getString(3));
-			//account.add(res.getString(4));
-			//account.add(res.getString(5));
-			
-			//System.out.print(res.getString(1));
 			
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -167,7 +138,6 @@ public class Database {
 	}
     
     public ResultSet getAllAccounts() {
-    	//ArrayList<ArrayList<String>> accountsList = new ArrayList<ArrayList<String>>();
     	ResultSet res = null;
     	
     	try {
@@ -255,16 +225,7 @@ public class Database {
 			String get = "SELECT kontostand FROM accounts WHERE Vorname = ?";
 			PreparedStatement stm = con.prepareStatement(get);
 			stm.setString(1, receiver);
-			//Statement stm = con.createStatement();
 			res = stm.executeQuery();
-			
-			//account.add(res.getString(1));
-			//account.add(res.getString(2));
-			//account.add(res.getString(3));
-			//account.add(res.getString(4));
-			//account.add(res.getString(5));
-			
-			//System.out.print(res.getString(1));
 			
 		} catch (SQLException e) {
 			System.out.println(e);
@@ -335,76 +296,6 @@ public class Database {
 					System.out.println(c);
 					transactionHistoryList.add(c);
 				}
-				
-				/*
-				if(res.getString(3) == null) {
-					date = res.getString(5);
-					date = date.replace("-", "/");
-					
-					if(res.getString(1) != null) {
-						name = res.getString(1);
-						send = "-";
-					} else {
-						name = res.getString(2);
-						send = "+";
-					}
-					
-					amount = res.getString(4);
-					
-					for(int i = 0; i < 20-name.length(); i++) {
-						spaces = spaces + " ";
-					}
-					//System.out.println(spaces.length());
-					c = date + "   " + name + spaces + send + amount;
-					//System.out.println(c);
-					spaces = "";
-					
-					transactionHistoryList.add(c);
-				} else {
-					if(res.getString(3) == "eingezahlt") {
-						date = res.getString(5);
-						date = date.replace("", "/");
-						
-						amount = res.getString(4);
-						
-						c = date + "  " + "abgehoben  " + "-" + amount;
-						transactionHistoryList.add(c);
-					} else {
-						date = res.getString(5);
-						date = date.replace("-", "/");
-						
-						amount = res.getString(4);
-						
-						c = date + "  " + "eingezahlt  " + "+" + amount;
-						transactionHistoryList.add(c);
-					}
-				}
-				*/
-				
-				
-				/*
-				c = c + res.getString(4);
-				c = c.replace("-", "/");
-				c = c + "   ";
-				c = c + res.getString(1);
-				c = c + "   ";
-				c = c + res.getString(2);
-				c = c + "   ";
-				if (res.getString(1) == "" || res.getString(1) == null) {
-					c = c + "+";
-				} else {
-					c = c + "-";
-				}
-				c = c + res.getString(3);
-				//System.out.println(c);
-				c = c.replace("null","");
-				transactionHistoryList.add(c);
-				//System.out.println(c);
-				System.out.println(c.replaceAll("\\s+", ""));
-				
-				c = "";
-				*/
-				
 			}
 			
 		} catch (SQLException e) {
@@ -543,8 +434,4 @@ public class Database {
 			System.out.println(e);
 		}
     }
-
-    
-    
-    
 }
