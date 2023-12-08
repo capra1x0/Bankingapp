@@ -51,7 +51,7 @@ public class Atm implements ActionListener {
 	JButton btnEinzahlen = new JButton();
 	JButton btnAuszahlen = new JButton();
 	
-	JLabel loeschen = new JLabel("Löschen");
+	JLabel loeschen = new JLabel("LÃ¶schen");
 	JLabel einzahlen = new JLabel("Einzahlen");
 	JLabel auszahlen = new JLabel("Auszahlen");
 	
@@ -226,47 +226,47 @@ public class Atm implements ActionListener {
 		if(e.getSource() == btn7) {
 			System.out.println("working 7");
 			amountString = amountString + "7";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn8) {
 			System.out.println("working 8");
 			amountString = amountString + "8";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn9) {
 			System.out.println("working 9");
 			amountString = amountString + "9";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn4) {
 			System.out.println("working 4");
 			amountString = amountString + "4";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn5) {
 			System.out.println("working 5");
 			amountString = amountString + "5";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn6) {
 			System.out.println("working 6");
 			amountString = amountString + "6";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn1) {
 			System.out.println("working 1");
 			amountString = amountString + "1";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn2) {
 			System.out.println("working 2");
 			amountString = amountString + "2";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn3) {
 			System.out.println("working 3");
 			amountString = amountString + "3";
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btn0) {
 			System.out.println("working 0");
@@ -275,7 +275,7 @@ public class Atm implements ActionListener {
 			} else {
 				amountString = amountString + "0";
 			}
-			amount.setText(amountString + "€");
+			amount.setText(amountString + "â‚¬");
 		}
 		if(e.getSource() == btnLoeschen) {
 			amountString = "";
@@ -298,7 +298,6 @@ public class Atm implements ActionListener {
 						account.add(res.getString(4));
 						account.add(res.getString(5));
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					
@@ -307,7 +306,6 @@ public class Atm implements ActionListener {
 					frame.dispose();
 				}
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -328,7 +326,6 @@ public class Atm implements ActionListener {
 						account.add(res.getString(4));
 						account.add(res.getString(5));
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					
@@ -337,7 +334,6 @@ public class Atm implements ActionListener {
 					frame.dispose();
 				}
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
