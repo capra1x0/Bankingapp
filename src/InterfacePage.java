@@ -56,7 +56,7 @@ public class InterfacePage extends JFrame implements ActionListener {
 	JLabel balanceLabel = new JLabel();
 	JLabel headerLabel = new JLabel("Insi Bank");
 	JPanel transactionPanel = new JPanel();
-	JLabel sendMoney = new JLabel("Geld überweisen");
+	JLabel sendMoney = new JLabel("Geld Ã¼berweisen");
 	JLabel recLabel = new JLabel("an:");
 	JLabel amountLabel = new JLabel("betrag:");
 	JTextField amountField = new JTextField();
@@ -85,8 +85,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 	
 	static Database db = new Database();
 	private ArrayList<String> account;
-	
-	//ArrayList<ArrayList<String>> accountsList = new ArrayList<ArrayList<String>>();
 	
 	InterfacePage(ArrayList<String> account) {
 		this.account = account;
@@ -255,13 +253,11 @@ public class InterfacePage extends JFrame implements ActionListener {
 			
 			String receiver = rec.replaceAll("\\s.*", "");
 			String receiverLastname = rec.substring(rec.indexOf(' ') + 1);
-			//System.out.println("test1");
 			
 			if (amount.isEmpty()) {
 				JOptionPane.showMessageDialog(frame, "Gib einen Betrag an", "Error", JOptionPane.ERROR_MESSAGE);
 			} else {
 				if (Integer.valueOf(balance.getText()) >= Integer.valueOf(amount)) {
-					//System.out.println("send");
 					db.sendMoney(sender, senderLastname, receiver, receiverLastname, amount, kontostand);
 					
 					ArrayList<String> account = new ArrayList<String>();
@@ -276,7 +272,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 								account.add(res.getString(4));
 								account.add(res.getString(5));
 							} catch (SQLException e1) {
-								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
 							
@@ -285,7 +280,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 							frame.dispose();
 						}
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					
@@ -296,7 +290,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 	}
 	
 	public ArrayList<String> getNames () {
-		//ArrayList<ArrayList<String>> accountsList = new ArrayList<ArrayList<String>>();
 		ArrayList<String> containerList = new ArrayList<String>();
 		ResultSet res = (ResultSet) db.getAllAccounts();
 		
@@ -304,8 +297,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 			while (res.next()) {
 				containerList.add(res.getString(1));
 				containerList.add(res.getString(2));
-				//accountsList.add(containerList);
-				//containerList = new ArrayList<String>();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -316,7 +307,6 @@ public class InterfacePage extends JFrame implements ActionListener {
 	public static XYDataset createDataset(String name, String lastname) {
 		DefaultXYDataset ds = new DefaultXYDataset();
 		
-		//double[][] data = {{.1, .2, .3}, {1, 2, 3}};
 		String fullName = name + lastname;
 		double[][] data = db.getChartData(fullName); 
 		ds.addSeries("series1", data);
